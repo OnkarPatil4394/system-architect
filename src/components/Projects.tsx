@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 interface Project {
   title: string;
@@ -56,61 +57,65 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24">
       <div className="section-container">
-        <p className="section-heading">// Projects</p>
+        <ScrollReveal>
+          <p className="section-heading">// Projects</p>
+        </ScrollReveal>
         <div className="space-y-6">
           {projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-lg font-semibold text-foreground">
-                  {project.title}
-                </h3>
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                )}
-              </div>
+            <ScrollReveal key={index} delay={0.05 + index * 0.08}>
+              <div className="project-card">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {project.title}
+                  </h3>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
 
-              <div className="space-y-3 text-sm">
-                <div>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                    Problem
-                  </span>
-                  <p className="text-secondary-foreground mt-1">
-                    {project.problem}
-                  </p>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                      Problem
+                    </span>
+                    <p className="text-secondary-foreground mt-1">
+                      {project.problem}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                      Approach
+                    </span>
+                    <p className="text-secondary-foreground mt-1">
+                      {project.approach}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                      Outcome
+                    </span>
+                    <p className="text-secondary-foreground mt-1">
+                      {project.outcome}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                    Approach
-                  </span>
-                  <p className="text-secondary-foreground mt-1">
-                    {project.approach}
-                  </p>
-                </div>
-                <div>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                    Outcome
-                  </span>
-                  <p className="text-secondary-foreground mt-1">
-                    {project.outcome}
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border">
-                {project.technologies.map((tech) => (
-                  <span key={tech} className="tech-tag">
-                    {tech}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

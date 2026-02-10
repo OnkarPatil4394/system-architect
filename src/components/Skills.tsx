@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ScrollReveal";
+
 const skillCategories = [
   {
     title: "Hardware",
@@ -38,10 +40,12 @@ const Skills = () => {
   return (
     <section id="skills" className="py-24">
       <div className="section-container">
-        <p className="section-heading">// Skills</p>
+        <ScrollReveal>
+          <p className="section-heading">// Skills</p>
+        </ScrollReveal>
         <div className="grid md:grid-cols-3 gap-8">
-          {skillCategories.map((category) => (
-            <div key={category.title}>
+          {skillCategories.map((category, i) => (
+            <ScrollReveal key={category.title} delay={0.1 + i * 0.1}>
               <h3 className="font-mono text-sm font-medium text-foreground mb-4">
                 {category.title}
               </h3>
@@ -52,7 +56,7 @@ const Skills = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
