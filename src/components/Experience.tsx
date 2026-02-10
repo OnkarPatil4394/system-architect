@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ScrollReveal";
+
 const experiences = [
   {
     category: "Academic",
@@ -53,10 +55,12 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24">
       <div className="section-container">
-        <p className="section-heading">// Experience &amp; Learning</p>
+        <ScrollReveal>
+          <p className="section-heading">// Experience &amp; Learning</p>
+        </ScrollReveal>
         <div className="space-y-10">
-          {experiences.map((group) => (
-            <div key={group.category}>
+          {experiences.map((group, gi) => (
+            <ScrollReveal key={group.category} delay={0.1 * gi}>
               <h3 className="font-mono text-sm font-medium text-foreground mb-4">
                 {group.category}
               </h3>
@@ -83,7 +87,7 @@ const Experience = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
