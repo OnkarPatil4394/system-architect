@@ -1,40 +1,38 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionAccordion from "@/components/SectionAccordion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const experiences = [
   {
-    category: "Academic",
+    categoryKey: "academic" as const,
     items: [
       {
         title: "B.Tech Electrical Engineering",
         org: "University of Engineering & Technology",
         period: "2021 – 2025",
-        detail:
-          "Focus areas: Power Systems, Embedded Systems, Digital Signal Processing. Dean's List — 3 semesters.",
+        detail: "Focus areas: Power Systems, Embedded Systems, Digital Signal Processing. Dean's List — 3 semesters.",
       },
     ],
   },
   {
-    category: "Labs & Research",
+    categoryKey: "labsResearch" as const,
     items: [
       {
         title: "Embedded Systems Lab",
         org: "Dept. of Electrical Engineering",
         period: "2023 – 2024",
-        detail:
-          "Developed firmware for sensor interfacing and motor control. Contributed to lab infrastructure for 200+ students.",
+        detail: "Developed firmware for sensor interfacing and motor control. Contributed to lab infrastructure for 200+ students.",
       },
       {
         title: "Power Electronics Research Group",
         org: "University R&D Cell",
         period: "2024",
-        detail:
-          "Investigated wide-bandgap semiconductor switching characteristics for EV inverter applications.",
+        detail: "Investigated wide-bandgap semiconductor switching characteristics for EV inverter applications.",
       },
     ],
   },
   {
-    category: "Certifications",
+    categoryKey: "certifications" as const,
     items: [
       {
         title: "Embedded Systems Design",
@@ -53,16 +51,18 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="experience" className="py-24">
       <div className="section-container">
         <ScrollReveal>
-          <SectionAccordion title="// Experience & Learning" defaultOpen>
+          <SectionAccordion title={t("sectionExperience")} defaultOpen>
             <div className="space-y-10">
               {experiences.map((group) => (
-                <div key={group.category}>
+                <div key={group.categoryKey}>
                   <h3 className="font-mono text-sm font-medium text-foreground mb-4">
-                    {group.category}
+                    {t(group.categoryKey)}
                   </h3>
                   <div className="space-y-4">
                     {group.items.map((item, i) => (

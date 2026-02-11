@@ -1,6 +1,7 @@
 import { Mail, Github, Linkedin } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionAccordion from "@/components/SectionAccordion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const contacts = [
   {
@@ -21,14 +22,15 @@ const contacts = [
 ];
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="py-24">
       <div className="section-container">
         <ScrollReveal>
-          <SectionAccordion title="// Contact" defaultOpen>
+          <SectionAccordion title={t("sectionContact")} defaultOpen>
             <p className="text-secondary-foreground mb-8 max-w-md">
-              Open to R&amp;D internships, research collaborations, and engineering
-              discussions. Reach out via any channel below.
+              {t("contactDesc")}
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               {contacts.map((contact) => (
@@ -49,7 +51,7 @@ const Contact = () => {
 
         <div className="divider mt-24 mb-8" />
         <p className="font-mono text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Onkar Patil. Built with precision.
+          {t("copyright").replace("{year}", new Date().getFullYear().toString())}
         </p>
       </div>
     </section>

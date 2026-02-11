@@ -1,12 +1,15 @@
 import { ArrowDown, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const useTypingEffect = (text: string, speed = 50, delay = 600) => {
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    setDisplayed("");
+    setDone(false);
     const timeout = setTimeout(() => {
       let i = 0;
       const interval = setInterval(() => {
@@ -26,7 +29,8 @@ const useTypingEffect = (text: string, speed = 50, delay = 600) => {
 };
 
 const Hero = () => {
-  const tagline = "Building reliable hardware–software interfaces for next-generation integrated systems.";
+  const { t } = useLanguage();
+  const tagline = t("heroTagline");
   const { displayed, done } = useTypingEffect(tagline, 35, 800);
 
   return (
@@ -38,7 +42,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="font-mono text-sm text-muted-foreground tracking-wide"
         >
-          Hello, I'm
+          {t("heroGreeting")}
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
@@ -56,7 +60,7 @@ const Hero = () => {
         >
           <div className="w-8 h-px bg-primary" />
           <p className="font-mono text-sm md:text-base text-primary">
-            Electrical Engineer · Embedded &amp; Systems
+            {t("heroSubtitle")}
           </p>
         </motion.div>
         <motion.div
@@ -81,7 +85,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-mono bg-primary text-primary-foreground rounded-sm hover:bg-primary/90 transition-colors"
           >
             <Download className="w-4 h-4" />
-            Download Resume
+            {t("downloadResume")}
           </a>
         </motion.div>
       </div>
@@ -93,7 +97,7 @@ const Hero = () => {
         href="#about"
         className="mt-24 inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-mono text-xs tracking-wider"
       >
-        SCROLL
+        {t("scroll")}
         <ArrowDown className="w-3 h-3 animate-bounce" />
       </motion.a>
     </section>

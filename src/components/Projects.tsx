@@ -3,6 +3,7 @@ import { ExternalLink, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionAccordion from "@/components/SectionAccordion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface Project {
   title: string;
@@ -16,48 +17,37 @@ interface Project {
 const projects: Project[] = [
   {
     title: "BLDC Motor Controller",
-    problem:
-      "Existing open-loop motor drivers for small robotics lacked precise speed regulation under variable load conditions.",
-    approach:
-      "Designed a closed-loop BLDC controller with Hall-effect feedback, implementing a PID algorithm on STM32. Custom PCB with integrated gate drivers and current sensing.",
+    problem: "Existing open-loop motor drivers for small robotics lacked precise speed regulation under variable load conditions.",
+    approach: "Designed a closed-loop BLDC controller with Hall-effect feedback, implementing a PID algorithm on STM32. Custom PCB with integrated gate drivers and current sensing.",
     technologies: ["STM32", "KiCad", "Embedded C", "PID Control"],
-    outcome:
-      "Achieved ±2% speed accuracy under 80% load variation. Reduced component count by 30% over reference design.",
+    outcome: "Achieved ±2% speed accuracy under 80% load variation. Reduced component count by 30% over reference design.",
   },
   {
     title: "IoT Environmental Monitor",
-    problem:
-      "Campus lab environments lacked real-time monitoring for temperature, humidity, and air quality — impacting sensitive equipment calibration.",
-    approach:
-      "Built a mesh network of ESP32 sensor nodes communicating over MQTT to a central dashboard. Implemented OTA firmware updates and watchdog timers for reliability.",
+    problem: "Campus lab environments lacked real-time monitoring for temperature, humidity, and air quality — impacting sensitive equipment calibration.",
+    approach: "Built a mesh network of ESP32 sensor nodes communicating over MQTT to a central dashboard. Implemented OTA firmware updates and watchdog timers for reliability.",
     technologies: ["ESP32", "MQTT", "Python", "FreeRTOS", "Grafana"],
-    outcome:
-      "Deployed 12-node network with 99.7% uptime over 3-month pilot. Data used to optimize HVAC scheduling.",
+    outcome: "Deployed 12-node network with 99.7% uptime over 3-month pilot. Data used to optimize HVAC scheduling.",
   },
   {
     title: "FPGA-Based Signal Processor",
-    problem:
-      "Software-based FFT processing introduced unacceptable latency for a real-time audio classification pipeline.",
-    approach:
-      "Implemented a pipelined 1024-point FFT on Xilinx Artix-7 FPGA using Verilog. Designed testbenches for functional verification and timing closure.",
+    problem: "Software-based FFT processing introduced unacceptable latency for a real-time audio classification pipeline.",
+    approach: "Implemented a pipelined 1024-point FFT on Xilinx Artix-7 FPGA using Verilog. Designed testbenches for functional verification and timing closure.",
     technologies: ["Verilog", "Vivado", "FPGA", "DSP"],
-    outcome:
-      "Reduced processing latency from 12ms to 0.8ms. Successfully classified 5 audio categories with 94% accuracy.",
+    outcome: "Reduced processing latency from 12ms to 0.8ms. Successfully classified 5 audio categories with 94% accuracy.",
   },
   {
     title: "Li-Ion Battery Management System",
-    problem:
-      "Custom battery packs for a solar-powered rover needed cell balancing and protection without commercial BMS modules.",
-    approach:
-      "Designed passive cell-balancing circuitry with over-voltage/under-voltage protection. Firmware monitors SOC via coulomb counting on ATmega328.",
+    problem: "Custom battery packs for a solar-powered rover needed cell balancing and protection without commercial BMS modules.",
+    approach: "Designed passive cell-balancing circuitry with over-voltage/under-voltage protection. Firmware monitors SOC via coulomb counting on ATmega328.",
     technologies: ["Altium", "ATmega328", "Power Electronics", "LTspice"],
-    outcome:
-      "Extended pack cycle life by ~20%. System passed all safety thresholds in 48-hour stress testing.",
+    outcome: "Extended pack cycle life by ~20%. System passed all safety thresholds in 48-hour stress testing.",
   },
 ];
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const [expanded, setExpanded] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <div className="project-card">
@@ -105,19 +95,19 @@ const ProjectCard = ({ project }: { project: Project }) => {
             <div className="space-y-3 text-sm mt-4 pt-4 border-t border-border">
               <div>
                 <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                  Problem
+                  {t("problem")}
                 </span>
                 <p className="text-secondary-foreground mt-1">{project.problem}</p>
               </div>
               <div>
                 <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                  Approach
+                  {t("approach")}
                 </span>
                 <p className="text-secondary-foreground mt-1">{project.approach}</p>
               </div>
               <div>
                 <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                  Outcome
+                  {t("outcome")}
                 </span>
                 <p className="text-secondary-foreground mt-1">{project.outcome}</p>
               </div>
@@ -130,11 +120,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 const Projects = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="projects" className="py-24">
       <div className="section-container">
         <ScrollReveal>
-          <SectionAccordion title="// Projects" defaultOpen>
+          <SectionAccordion title={t("sectionProjects")} defaultOpen>
             <div className="space-y-6">
               {projects.map((project, index) => (
                 <ScrollReveal key={index} delay={0.05 + index * 0.08}>
