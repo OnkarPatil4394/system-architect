@@ -1,7 +1,34 @@
 import { ArrowDown, Download } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const useTypingEffect = (text: string, speed = 50, delay = 600) => {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      let i = 0;
+      const interval = setInterval(() => {
+        setDisplayed(text.slice(0, i + 1));
+        i++;
+        if (i >= text.length) {
+          clearInterval(interval);
+          setDone(true);
+        }
+      }, speed);
+      return () => clearInterval(interval);
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [text, speed, delay]);
+
+  return { displayed, done };
+};
 
 const Hero = () => {
+  const tagline = "Building reliable hardware–software interfaces for next-generation integrated systems.";
+  const { displayed, done } = useTypingEffect(tagline, 35, 800);
+
   return (
     <section className="min-h-screen flex flex-col justify-center section-container pt-14">
       <div className="space-y-6">
@@ -32,14 +59,15 @@ const Hero = () => {
             Electrical Engineer · Embedded &amp; Systems
           </p>
         </motion.div>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.45 }}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.45 }}
           className="text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed"
         >
-          Building reliable hardware–software interfaces for next-generation integrated systems.
-        </motion.p>
+          <span>{displayed}</span>
+          <span className={`inline-block w-0.5 h-5 bg-primary ml-0.5 align-middle ${done ? "animate-pulse" : "animate-[blink_0.7s_step-end_infinite]"}`} />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}

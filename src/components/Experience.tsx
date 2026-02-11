@@ -6,7 +6,7 @@ const experiences = [
     category: "Academic",
     items: [
       {
-        title: "B.E. Electrical Engineering",
+        title: "B.Tech Electrical Engineering",
         org: "University of Engineering & Technology",
         period: "2021 – 2025",
         detail:
