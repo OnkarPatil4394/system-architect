@@ -37,7 +37,7 @@ const Navbar = () => {
       >
         <div className="section-container flex items-center justify-between h-14">
           <a href="#" className="font-mono text-sm font-medium text-foreground">
-            &lt;/eng&gt;
+            Onkar Patil
           </a>
 
           {/* Desktop nav */}

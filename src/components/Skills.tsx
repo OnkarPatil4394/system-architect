@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import SectionAccordion from "@/components/SectionAccordion";
 
 const skillCategories = [
   {
@@ -41,24 +42,25 @@ const Skills = () => {
     <section id="skills" className="py-24">
       <div className="section-container">
         <ScrollReveal>
-          <p className="section-heading">// Skills</p>
+          <SectionAccordion title="// Skills" defaultOpen>
+            <div className="grid md:grid-cols-3 gap-8">
+              {skillCategories.map((category) => (
+                <div key={category.title}>
+                  <h3 className="font-mono text-sm font-medium text-foreground mb-4">
+                    {category.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span key={skill} className="tech-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </SectionAccordion>
         </ScrollReveal>
-        <div className="grid md:grid-cols-3 gap-8">
-          {skillCategories.map((category, i) => (
-            <ScrollReveal key={category.title} delay={0.1 + i * 0.1}>
-              <h3 className="font-mono text-sm font-medium text-foreground mb-4">
-                {category.title}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span key={skill} className="tech-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
       </div>
     </section>
   );

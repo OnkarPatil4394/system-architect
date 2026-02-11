@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import SectionAccordion from "@/components/SectionAccordion";
 
 const experiences = [
   {
@@ -56,40 +57,41 @@ const Experience = () => {
     <section id="experience" className="py-24">
       <div className="section-container">
         <ScrollReveal>
-          <p className="section-heading">// Experience &amp; Learning</p>
-        </ScrollReveal>
-        <div className="space-y-10">
-          {experiences.map((group, gi) => (
-            <ScrollReveal key={group.category} delay={0.1 * gi}>
-              <h3 className="font-mono text-sm font-medium text-foreground mb-4">
-                {group.category}
-              </h3>
-              <div className="space-y-4">
-                {group.items.map((item, i) => (
-                  <div
-                    key={i}
-                    className="pl-4 border-l-2 border-border hover:border-primary/50 transition-colors"
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-                      <h4 className="text-sm font-medium text-foreground">
-                        {item.title}
-                      </h4>
-                      <span className="font-mono text-xs text-muted-foreground">
-                        {item.period}
-                      </span>
-                    </div>
-                    <p className="text-xs text-muted-foreground mb-1">
-                      {item.org}
-                    </p>
-                    <p className="text-sm text-secondary-foreground">
-                      {item.detail}
-                    </p>
+          <SectionAccordion title="// Experience & Learning" defaultOpen>
+            <div className="space-y-10">
+              {experiences.map((group) => (
+                <div key={group.category}>
+                  <h3 className="font-mono text-sm font-medium text-foreground mb-4">
+                    {group.category}
+                  </h3>
+                  <div className="space-y-4">
+                    {group.items.map((item, i) => (
+                      <div
+                        key={i}
+                        className="pl-4 border-l-2 border-border hover:border-primary/50 transition-colors"
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+                          <h4 className="text-sm font-medium text-foreground">
+                            {item.title}
+                          </h4>
+                          <span className="font-mono text-xs text-muted-foreground">
+                            {item.period}
+                          </span>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-1">
+                          {item.org}
+                        </p>
+                        <p className="text-sm text-secondary-foreground">
+                          {item.detail}
+                        </p>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+                </div>
+              ))}
+            </div>
+          </SectionAccordion>
+        </ScrollReveal>
       </div>
     </section>
   );
