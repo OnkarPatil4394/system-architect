@@ -19,7 +19,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1]"
         >
-          Alex Chen
+          Onkar Patil
         </motion.h1>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
