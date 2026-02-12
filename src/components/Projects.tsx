@@ -16,32 +16,12 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "BLDC Motor Controller",
-    problem: "Existing open-loop motor drivers for small robotics lacked precise speed regulation under variable load conditions.",
-    approach: "Designed a closed-loop BLDC controller with Hall-effect feedback, implementing a PID algorithm on STM32. Custom PCB with integrated gate drivers and current sensing.",
-    technologies: ["STM32", "KiCad", "Embedded C", "PID Control"],
-    outcome: "Achieved ±2% speed accuracy under 80% load variation. Reduced component count by 30% over reference design.",
-  },
-  {
-    title: "IoT Environmental Monitor",
-    problem: "Campus lab environments lacked real-time monitoring for temperature, humidity, and air quality — impacting sensitive equipment calibration.",
-    approach: "Built a mesh network of ESP32 sensor nodes communicating over MQTT to a central dashboard. Implemented OTA firmware updates and watchdog timers for reliability.",
-    technologies: ["ESP32", "MQTT", "Python", "FreeRTOS", "Grafana"],
-    outcome: "Deployed 12-node network with 99.7% uptime over 3-month pilot. Data used to optimize HVAC scheduling.",
-  },
-  {
-    title: "FPGA-Based Signal Processor",
-    problem: "Software-based FFT processing introduced unacceptable latency for a real-time audio classification pipeline.",
-    approach: "Implemented a pipelined 1024-point FFT on Xilinx Artix-7 FPGA using Verilog. Designed testbenches for functional verification and timing closure.",
-    technologies: ["Verilog", "Vivado", "FPGA", "DSP"],
-    outcome: "Reduced processing latency from 12ms to 0.8ms. Successfully classified 5 audio categories with 94% accuracy.",
-  },
-  {
-    title: "Li-Ion Battery Management System",
-    problem: "Custom battery packs for a solar-powered rover needed cell balancing and protection without commercial BMS modules.",
-    approach: "Designed passive cell-balancing circuitry with over-voltage/under-voltage protection. Firmware monitors SOC via coulomb counting on ATmega328.",
-    technologies: ["Altium", "ATmega328", "Power Electronics", "LTspice"],
-    outcome: "Extended pack cycle life by ~20%. System passed all safety thresholds in 48-hour stress testing.",
+    title: "1BHK Smart Home Automation System",
+    problem: "Traditional home appliance control lacks remote access, automation, and energy efficiency — especially in affordable setups for students and small apartments.",
+    approach: "Designed a 3-block system: (1) Hall Automation with ESP32 + 4-Channel Relay for Wi-Fi & cloud-based light/fan control, (2) Smart RFID Door Lock using Arduino UNO + Servo for authorized-only access, (3) Parking & Washroom Automation with PIR sensors for motion-based lighting. Integrated ESP RainMaker for mobile app control and Google Home voice assistant support.",
+    technologies: ["ESP32", "Arduino UNO", "RFID", "PIR Sensor", "Relay Module", "ESP RainMaker", "Google Home", "Embedded C"],
+    outcome: "Delivered a fully functional, affordable smart home prototype supporting automatic + manual control, cloud connectivity, voice commands, and RFID security. Demonstrated end-to-end hardware–software integration with real-time IoT automation.",
+    link: "https://github.com/onkarpatil-ee",
   },
 ];
 

@@ -8,9 +8,15 @@ const experiences = [
     items: [
       {
         title: "B.Tech Electrical Engineering",
-        org: "University of Engineering & Technology",
-        period: "2021 – 2025",
-        detail: "Focus areas: Power Systems, Embedded Systems, Digital Signal Processing. Dean's List — 3 semesters.",
+        org: "Dr. D.Y. Patil Pratishthan's College of Engineering, Kolhapur (Shivaji University)",
+        period: "2023 – Present",
+        detail: "3rd year. Focus areas: Embedded Systems, Digital Electronics, Power Electronics. Active in hands-on IoT and automation projects.",
+      },
+      {
+        title: "SSC (Secondary School Certificate)",
+        org: "Adarsh Gurukul Vidyalay Va JR. College, Peth Vadgaon",
+        period: "2020 – 2021",
+        detail: "Completed with 92.6% — strong foundation in mathematics and science.",
       },
     ],
   },
@@ -18,16 +24,22 @@ const experiences = [
     categoryKey: "labsResearch" as const,
     items: [
       {
-        title: "Embedded Systems Lab",
-        org: "Dept. of Electrical Engineering",
-        period: "2023 – 2024",
-        detail: "Developed firmware for sensor interfacing and motor control. Contributed to lab infrastructure for 200+ students.",
+        title: "Embedded System Design",
+        org: "SkillDzire",
+        period: "Aug 2025",
+        detail: "Certified course covering ARM architecture, microcontroller programming, and hardware-software integration. Credential ID: SD-100177.",
       },
       {
-        title: "Power Electronics Research Group",
-        org: "University R&D Cell",
+        title: "MATLAB Onramp",
+        org: "MathWorks",
+        period: "Nov 2024",
+        detail: "Official MathWorks certification covering MATLAB fundamentals for engineering computation and data analysis.",
+      },
+      {
+        title: "Google Cloud Gemini & Imagen Skill Badge",
+        org: "Google Cloud",
         period: "2024",
-        detail: "Investigated wide-bandgap semiconductor switching characteristics for EV inverter applications.",
+        detail: "Earned skill badge for building real-world AI applications with Gemini and Imagen on Google Cloud platform.",
       },
     ],
   },
@@ -35,16 +47,10 @@ const experiences = [
     categoryKey: "certifications" as const,
     items: [
       {
-        title: "Embedded Systems Design",
-        org: "NPTEL / IIT Kharagpur",
+        title: "Java DevOps and Programming",
+        org: "SkillAcademy (Testbook)",
         period: "2023",
-        detail: "Elite certification. Covered ARM architecture, RTOS, and peripheral interfacing.",
-      },
-      {
-        title: "PCB Design with KiCad",
-        org: "Udemy",
-        period: "2023",
-        detail: "Multi-layer PCB design, DFM considerations, and Gerber generation.",
+        detail: "Bootcamp covering Java fundamentals, DevOps workflows, and programming best practices.",
       },
     ],
   },
