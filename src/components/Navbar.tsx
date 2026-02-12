@@ -66,13 +66,13 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -4 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-1 bg-background border border-border rounded-sm shadow-lg overflow-hidden z-50"
+                    className="absolute right-0 top-full mt-1 min-w-[7rem] bg-background border border-border rounded-sm shadow-lg overflow-hidden z-50"
                   >
                     {(Object.keys(langLabels) as Lang[]).map((l) => (
                       <button
                         key={l}
                         onClick={() => handleLangChange(l)}
-                        className={`block w-full text-left px-4 py-2 font-mono text-xs transition-colors ${
+                        className={`block w-full text-start px-4 py-2 font-mono text-xs whitespace-nowrap transition-colors ${
                           l === lang
                             ? "text-primary bg-primary/10"
                             : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -104,13 +104,13 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -4 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-1 bg-background border border-border rounded-sm shadow-lg overflow-hidden z-50"
+                    className="absolute right-0 top-full mt-1 min-w-[7rem] bg-background border border-border rounded-sm shadow-lg overflow-hidden z-50"
                   >
                     {(Object.keys(langLabels) as Lang[]).map((l) => (
                       <button
                         key={l}
                         onClick={() => handleLangChange(l)}
-                        className={`block w-full text-left px-4 py-2 font-mono text-xs transition-colors ${
+                        className={`block w-full text-start px-4 py-2 font-mono text-xs whitespace-nowrap transition-colors ${
                           l === lang
                             ? "text-primary bg-primary/10"
                             : "text-muted-foreground hover:text-foreground hover:bg-muted"
