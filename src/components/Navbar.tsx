@@ -5,7 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { langLabels, Lang } from "@/i18n/translations";
 import { useTheme } from "@/hooks/use-theme";
 
-const navKeys = ["about", "skills", "projects", "experience", "contact"] as const;
+const navKeys = ["about", "electrical", "electronics", "experience", "contact"] as const;
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
