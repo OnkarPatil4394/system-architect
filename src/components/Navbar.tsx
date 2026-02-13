@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, Sun, Moon } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { langLabels, Lang } from "@/i18n/translations";
+import { useTheme } from "@/hooks/use-theme";
 
 const navKeys = ["about", "skills", "projects", "experience", "contact"] as const;
 
@@ -11,6 +12,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -49,6 +51,15 @@ const Navbar = () => {
                 {t(key)}
               </a>
             ))}
+
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              className="text-muted-foreground hover:text-foreground transition-colors p-1"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
 
             {/* Language switcher */}
             <div className="relative">
@@ -89,6 +100,13 @@ const Navbar = () => {
 
           {/* Mobile buttons */}
           <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="text-muted-foreground hover:text-foreground p-1"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
