@@ -1,10 +1,12 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import ExcellenceSection from "@/components/ExcellenceSection";
-import Experience from "@/components/Experience";
-import Contact from "@/components/Contact";
 import ScrollToTop from "@/components/ScrollToTop";
+
+const About = lazy(() => import("@/components/About"));
+const ExcellenceSection = lazy(() => import("@/components/ExcellenceSection"));
+const Experience = lazy(() => import("@/components/Experience"));
+const Contact = lazy(() => import("@/components/Contact"));
 
 const electricalData = {
   id: "electrical",
@@ -87,16 +89,18 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
-      <div className="divider section-container" />
-      <About />
-      <div className="divider section-container" />
-      <ExcellenceSection {...electricalData} />
-      <div className="divider section-container" />
-      <ExcellenceSection {...electronicsData} />
-      <div className="divider section-container" />
-      <Experience />
-      <div className="divider section-container" />
-      <Contact />
+      <Suspense fallback={null}>
+        <div className="divider section-container" />
+        <About />
+        <div className="divider section-container" />
+        <ExcellenceSection {...electricalData} />
+        <div className="divider section-container" />
+        <ExcellenceSection {...electronicsData} />
+        <div className="divider section-container" />
+        <Experience />
+        <div className="divider section-container" />
+        <Contact />
+      </Suspense>
       <ScrollToTop />
     </div>
   );
