@@ -7,13 +7,13 @@ const education = [
     title: "B.Tech Electrical Engineering",
     org: "Dr. D.Y. Patil Pratishthan's College of Engineering, Kolhapur (Shivaji University)",
     period: "2023 – Present",
-    detail: "3rd year. Focus areas: Embedded Systems, Digital Electronics, Power Electronics. Active in hands-on IoT and automation projects.",
+    detail: "",
   },
   {
     title: "SSC (Secondary School Certificate)",
     org: "Adarsh Gurukul Vidyalay Va JR. College, Peth Vadgaon",
     period: "2020 – 2021",
-    detail: "Completed with 92.6% — strong foundation in mathematics and science.",
+    detail: "",
   },
 ];
 
